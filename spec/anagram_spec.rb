@@ -7,5 +7,8 @@ describe Anagram do
   it 'returns true if words match letters' do
     expect(words.word_checker("lamb", "balm")).to eq(true)
   end
+  it 'accounts for capitalization' do
+    expect(words.word_checker("LaMb", "BAlm")).to eq(true)
+  end
 end
 end
