@@ -13,5 +13,10 @@ describe Anagram do
   it 'accounts for capitalization' do
     expect(words.word_checker("LaMb", "BAlm")).to eq(true)
   end
+  it 'returns false when input has no vowels' do 
+    word.compare << "wrld"
+    compare = word.compare
+    expect(compare). to eq(false)
+  end
 end
 end
