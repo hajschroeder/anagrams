@@ -11,6 +11,8 @@ describe Anagram do
   it 'accounts for capitalization' do
     expect(words.word_checker("LaMb", "BAlm")).to eq(true)
   end
+  it 'checks for antigrams between words' do 
+    expect(words.word_checker("foo", "bar"))
   end
   describe '#letter_checker' do 
   compare =  Anagram.new()
@@ -18,5 +20,6 @@ describe Anagram do
     expect(compare.letter_checker("hllwrld")).to eq(true)
     expect(compare.letter_checker("foobarbaz")).to eq(false)
   end
+end
 end
 end
