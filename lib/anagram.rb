@@ -14,6 +14,11 @@ class Anagram
     input_comp = first_input == [] || second_input == []
   end
 
+  def antigram_checker(word_one, word_two)
+    compare = word_one.downcase.chars & word_two.downcase.chars
+    compare == []
+  end
+
 end
     
 
