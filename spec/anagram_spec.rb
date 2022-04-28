@@ -20,6 +20,12 @@ describe Anagram do
     expect(compare.letter_checker("hllwrld", "fbrbz")).to eq(true)
     expect(compare.letter_checker("hello", "foobarbaz")).to eq(false)
   end
+  describe '#antigram_checker' do 
+  anti = Anagram.new()
+  it 'checks if words contain any of the same words' do
+    expect(anti.antigram_checker("foo", "bar")).to eq(false)
+  end
 end
+end 
 end
 end
