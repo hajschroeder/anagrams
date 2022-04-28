@@ -17,8 +17,8 @@ describe Anagram do
   describe '#letter_checker' do 
   compare =  Anagram.new()
   it 'returns true if the word contains no vowels and false for ones that do' do
-    expect(compare.letter_checker("hllwrld")).to eq(true)
-    expect(compare.letter_checker("foobarbaz")).to eq(false)
+    expect(compare.letter_checker("hllwrld", "fbrbz")).to eq(true)
+    expect(compare.letter_checker("hello", "foobarbaz")).to eq(false)
   end
 end
 end
