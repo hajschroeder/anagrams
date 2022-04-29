@@ -13,7 +13,7 @@ class Anagram
   end
 
   def antigram_checker(word_one, word_two)
-    compare = word_one.downcase.chars & word_two.downcase.chars
+    compare = word_one.downcase.chars.sort.join.to_s.delete(' ').chars & word_two.downcase.chars.sort.join.to_s.delete(' ').chars
     compare == []
   end
 
