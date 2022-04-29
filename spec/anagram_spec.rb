@@ -14,9 +14,7 @@ describe Anagram do
   it 'accounts for phrases, not just single words' do
     expect(words.word_checker("Tom Marvolo Riddle", "I Am Lord Voldemort")).to eq(true)
   end
-  it 'checks for antigrams between words' do 
-    expect(words.word_checker("foo", "bar"))
-  end
+
   describe '#letter_checker' do 
   compare =  Anagram.new()
   it 'returns true if the word contains no vowels and false for ones that do' do
