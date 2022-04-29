@@ -11,6 +11,9 @@ describe Anagram do
   it 'accounts for capitalization' do
     expect(words.word_checker("LaMb", "BAlm")).to eq(true)
   end
+  it 'accounts for phrases, not just single words' do
+    expect(words.word_checker("Tom Marvolo Riddle", "I Am Lord Voldemort")).to eq(true)
+  end
   it 'checks for antigrams between words' do 
     expect(words.word_checker("foo", "bar"))
   end
@@ -23,9 +26,10 @@ describe Anagram do
   describe '#antigram_checker' do 
   anti = Anagram.new()
   it 'checks if words contain any of the same words' do
-    expect(anti.antigram_checker("foo", "bar")).to eq(false)
+    expect(anti.antigram_checker("foo", "bar")).to eq(true)
+    expect(anti.antigram_checker("bar", "baz")).to eq(false)
   end
 end
-end 
 end
+end 
 end
