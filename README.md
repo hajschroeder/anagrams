@@ -36,7 +36,7 @@ _Note, this will require your local device to have Ruby installed_
 ___
 
 ## Known Bugs
-While the program is currently working with all tests passing in it's present state, it is far from a finished product. Of the five functionality objectives assigned, only three are present. The author ran into a problem with his working environment, which took the better part of two days to fix (including uninstall/reinstalling Ruby and it's associated applications and gems etc.). Naturally, this served as an effective impediment in meeting all objectives by the initial deadline. That being said, work will nevertheless continue until all functionality and scripting is achieved. 
+No known bugs, however the code could potentially be refactored. 
 
 ---
 
