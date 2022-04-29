@@ -29,6 +29,9 @@ describe Anagram do
     expect(anti.antigram_checker("foo", "bar")).to eq(true)
     expect(anti.antigram_checker("bar", "baz")).to eq(false)
   end
+  it 'accounts for phrases' do 
+    expect(anti.antigram_checker("smile big", "down frown")).to eq(true)
+  end
 end
 end
 end 
