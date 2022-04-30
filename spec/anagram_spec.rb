@@ -1,36 +1,41 @@
 require 'anagram'
 require 'rspec'
 
-describe Anagram do
-  describe '#word_checker' do 
-  words = Anagram.new()
-  it 'returns true if words match letters and false when they do not' do
-    expect(words.word_checker("lamb", "balm")).to eq(true)
-    expect(words.word_checker("foo", "bar")).to eq(false)
+describe Anagram  do
+  describe '#word_checker?' do
+    it('checks for anagrams') do
+      test_one = Anagram.new('lamb', 'balm')
+      expect(test_one.word_checker?()).to eq(true)
+      test_two = Anagram.new('foo', 'bar')
+      expect(test_two.word_checker?()).to eq(false)
+    end
+    it('accounts for capitalization') do 
+      test_one = Anagram.new('LaMB', 'bAlm')
+      expect(test_one.word_checker?()).to eq(true)
+    end
+    it('accounts for multiple words') do
+      test_one = Anagram.new('Tom Marvolo Riddle', 'I Am Lord Voldemort') 
+      expect(test_one.word_checker?()).to eq(true)
+      test_two = Anagram.new('the quick brown fox', 'jumps over the lazy dog')
+      expect(test_two.word_checker?()).to eq(false)
+    end
   end
-  it 'accounts for capitalization' do
-    expect(words.word_checker("LaMb", "BAlm")).to eq(true)
+  describe '#vowel_checker?' do
+    it('checks word for vowels') do 
+      test_one = Anagram.new('foo', 'bar')
+      expect(test_one.vowel_checker?()).to eq(false)
+      test_two = Anagram.new('hll', 'wrld')
+      expect(test_two.vowel_checker?()).to eq(true)
+      test_three = Anagram.new('bcdfghjk', 'lmnpqrstvwxz')
+      expect(test_three.vowel_checker?()).to eq(true)
+    end
   end
-  it 'accounts for phrases, not just single words' do
-    expect(words.word_checker("Tom Marvolo Riddle", "I Am Lord Voldemort")).to eq(true)
+  describe '#antigram_checker?' do
+    it('checks if the words are antigrams while accounting for capitalization and multiple words') do
+      test_one = Anagram.new('fOo', 'bAr')
+      expect(test_one.antigram_checker?()).to eq(true)
+      test_two = Anagram.new('Foo BAr', 'fOO baz')
+      expect(test_two.antigram_checker?()).to eq(false)
+    end
   end
-
-  describe '#letter_checker' do 
-  compare =  Anagram.new()
-  it 'returns true if the word contains no vowels and false for ones that do' do
-    expect(compare.letter_checker("hllwrld", "fbrbz")).to eq(true)
-    expect(compare.letter_checker("hello", "foobarbaz")).to eq(false)
-  end
-  describe '#antigram_checker' do 
-  anti = Anagram.new()
-  it 'checks if words contain any of the same words' do
-    expect(anti.antigram_checker("foo", "bar")).to eq(true)
-    expect(anti.antigram_checker("bar", "baz")).to eq(false)
-  end
-  it 'accounts for phrases' do 
-    expect(anti.antigram_checker("smile big", "down frown")).to eq(true)
-  end
-end
-end
-end 
 end

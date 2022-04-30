@@ -1,22 +1,24 @@
 require 'pry'
-class Anagram 
-  def word_checker(word_one, word_two)
-    word_one_str = word_one.downcase.chars.sort.join.to_s.delete(' ')
-    word_two_str = word_two.downcase.chars.sort.join.to_s.delete(' ')
-    str_comp = word_one_str == word_two_str
-  end
-  
-  def letter_checker(word_one, word_two)
-    first_input = word_one.chars.keep_if { |v| v =~ /[aeiou]/ }
-    second_input = word_two.chars.keep_if { |v| v =~ /[aeiou]/}
-    input_comp = first_input == [] || second_input == []
+
+class Anagram
+  def initialize(word_one, word_two)
+    @word_one = word_one.downcase.delete(' ').chars.sort.join
+    @word_two = word_two.downcase.delete(' ').chars.sort.join
   end
 
-  def antigram_checker(word_one, word_two)
-    compare = word_one.downcase.chars.sort.join.to_s.delete(' ').chars & word_two.downcase.chars.sort.join.to_s.delete(' ').chars
+  def word_checker?
+    @word_one == @word_two
+  end
+
+  def vowel_checker?
+  input_one = @word_one.chars.keep_if { |v| v =~ /[aeiou]/ }
+  input_two = @word_two.chars.keep_if { |v| v =~ /[aeiou]/ }
+  compare_vowels = input_one == [] || input_two == []
+  end
+
+  def antigram_checker?
+    compare = @word_one.chars & @word_two.chars
     compare == []
   end
 
 end
-    
-
